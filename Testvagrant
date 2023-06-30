@@ -1,0 +1,77 @@
+package Playlist;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+public class RecordPlaylist {
+
+
+    static List<String> tracklist = new ArrayList<String>();
+
+
+    public void display() {
+        System.out.println("Please select th song that you want to Play A, B, C, D");
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();              //reads Song
+        System.out.println("You have entered: " + str);
+
+        if (tracklist.isEmpty()) {
+            tracklist.add(str);
+        } else {
+            tracklist.add(str);
+
+        }
+
+    }
+
+    public void DisplayPlaylist() {
+
+        Iterator<String> iter
+                = tracklist.iterator();
+
+        System.out.println("\nHistory of Playsong"
+                + " of list are: ");
+        while (iter.hasNext()) {
+            System.out.println(iter.next() + " ");
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner Option = new Scanner(System.in);
+         String decision;
+
+        boolean repeat = true;
+        RecordPlaylist a = new RecordPlaylist();
+        a.display();
+        a.DisplayPlaylist();
+        System.out.println("DO you want to see the playlist again yes/no");
+        decision = Option.nextLine();
+
+        while (repeat)
+        {
+//
+
+            switch (decision) {
+                case "yes":
+                    a.display();
+                    a.DisplayPlaylist();
+                    repeat = true;
+                    break;
+
+                case "no":
+                    repeat = false;
+                    break;
+            }
+            if (repeat) {
+                System.out.println("DO you want to see the playlist again yes/no");
+                decision = Option.nextLine();
+            }
+
+        }
+    }
+}
+
